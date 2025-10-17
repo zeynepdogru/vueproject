@@ -1,6 +1,6 @@
 <template>
   <h1>{{ title }}</h1>
-  <div class="form">
+  <form class="form">
     <slot name="header"></slot>
     <div class="form-container">
       <p>Giriş yapabilmek için lütfen formu doldurun.</p>
@@ -12,6 +12,7 @@
         type="email"
         name="email"
         placeholder="E-posta adresinizi giriniz"
+        required
       />
       <div class="form-input-description">Bu e-posta içeriği: {{ email }}</div>
 
@@ -21,19 +22,23 @@
         type="password"
         name="password"
         placeholder="Şifrenizi giriniz"
+        required
       />
     </div>
     <div class="form-input-description">Bu şifre içeriği: {{ password }}</div>
 
     <div class="form-button">
-      <button v-on:click="handleClick">Giriş Yap</button>
+      <button type="submit">Giriş Yap</button>
     </div>
-
+    <p>
+      Hesap oluşturmak için
+      <router-link to="/register">buraya tıklayın</router-link>.
+    </p>
     <div class="footer">
       <p>© 2025 Vue Blog</p>
       <p>Tüm Hakları Saklıdır</p>
     </div>
-  </div>
+  </form>
 </template>
 
 <script>
